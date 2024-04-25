@@ -15,6 +15,20 @@ function configureRoutes(routesService: RoutesService) {
         order: 1,
         layout: eLayoutType.application,
       },
+      {
+        path: '/conference',
+        name: '::Menu:Conference',
+        iconClass: 'fas fa-comments',
+        order: 2,
+        layout: eLayoutType.application,
+      },
+      {
+        path: '/participants',
+        name: '::Menu:Participants',
+        parentName: '::Menu:Conference',
+        iconClass: 'fas fa-users',
+        layout: eLayoutType.application,
+      },
     ]);
   };
 }

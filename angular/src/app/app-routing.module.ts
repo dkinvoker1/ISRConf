@@ -25,6 +25,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('@abp/ng.setting-management').then(m => m.SettingManagementModule.forLazy()),
   },
+  { path: 'participants', loadChildren: () => import('./conference/participants/participants.module').then(m => m.ParticipantsModule) },
 ];
 
 @NgModule({
