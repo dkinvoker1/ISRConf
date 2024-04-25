@@ -3,6 +3,23 @@
   "texts": {
     "Menu:Home": "Home",
     "Welcome": "Welcome",
-    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io."
+    "LongWelcomeMessage": "Welcome to the application. This is a startup project based on the ABP framework. For more information, visit abp.io.",
+    "Menu:Conference": "Conference",
+    "Menu:Participants": "Participants",
+    "Actions": "Actions",
+    "Close": "Close",
+    "Delete": "Delete",
+    "Edit": "Edit",
+    "AddParticipant": "Add participant",
+    "FirstName": "First name",
+    "Surname": "Surname",
+    "EmailAdress": "Email",
+    "Phone number": "Phone number",
+    "TicketType": "Ticket type",
+    "AreYouSure": "Are you sure?",
+    "AreYouSureToDelete": "Are you sure you want to delete this item?",
+    "Enum:TicketType.0": "Concessionary",
+    "Enum:TicketType.1": "Normal",
+    "Enum:TicketType.2": "Vip"
   }
 }
