@@ -25,15 +25,11 @@ namespace ISRConf.Conference.Participant
 
         public async override Task<ParticipantDto> CreateAsync(CreateUpdateParticipantDto newParticipantDto)
         {
-            var newParticipant = await ParticipantManager.CrateParticipantAsync(
-                newParticipantDto.FirstName,
-                newParticipantDto.Surname,
-                newParticipantDto.EmailAdress,
-                newParticipantDto.PhoneNumber,
-                newParticipantDto.TicketType);
+            var mappedParticipant = ObjectMapper.Map<CreateUpdateParticipantDto, Participant>(newParticipantDto);
+            var newParticipant = await ParticipantManager.CrateParticipantAsync(mappedParticipant);
 
-            await Repository.InsertAsync(newParticipant);
-            return ObjectMapper.Map<Participant, ParticipantDto>(newParticipant);
+            var insertedParticipant = await Repository.InsertAsync(newParticipant);
+            return ObjectMapper.Map<Participant, ParticipantDto>(insertedParticipant);
         }
 
         public async override Task<ParticipantDto> UpdateAsync(Guid id, CreateUpdateParticipantDto newParticipantDto)

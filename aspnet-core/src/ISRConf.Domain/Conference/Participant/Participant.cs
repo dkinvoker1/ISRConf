@@ -33,6 +33,17 @@ namespace ISRConf.Conference.Participant
             TicketType = ticketType;
         }
 
+        public Participant(
+            Guid id,
+            Participant participant) : base(id)
+        {
+            SetFirstName(participant.FirstName);
+            SetSurname(participant.Surname);
+            SetEmailAdress(participant.EmailAdress);
+            SetPhoneNumber(participant.PhoneNumber);
+            TicketType = participant.TicketType;
+        }
+
         public virtual void SetFirstName(string firstName)
         {
             Check.NotNullOrWhiteSpace(firstName, nameof(firstName), ParticipantConsts.MaxNameLength);

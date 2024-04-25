@@ -16,22 +16,16 @@ namespace ISRConf.Conference.Participant
             ParticipantRepository = patricipantRepository;
         }
 
-        public virtual async Task<Participant> CrateParticipantAsync(
-            string firstName,
-            string surname,
-            string emailAdress,
-            string phoneNumber,
-            TicketType ticketType)
+        public virtual async Task<Participant> CrateParticipantAsync(Participant participant)
         {
-            var emailInUse = await ParticipantRepository.AnyAsync(dbParticipant => dbParticipant.EmailAdress == emailAdress);
+            var emailInUse = await ParticipantRepository.AnyAsync(dbParticipant => dbParticipant.EmailAdress == participant.EmailAdress);
 
             if (emailInUse)
             {
-                throw new UserFriendlyException($"Participant with email adress: {emailAdress} already exists. Please choose different email address.");
+                throw new UserFriendlyException($"Participant with email adress: {participant.EmailAdress} already exists. Please choose different email address.");
             }
 
-            var participant = new Participant(GuidGenerator.Create(), firstName, surname, emailAdress, phoneNumber, ticketType);
-            return participant;
+            return new Participant(Guid.NewGuid(), participant);
         }
 
         public virtual async Task ChangeParticipantEmailAdressAsync(Participant participant, string newEmailAdress)
